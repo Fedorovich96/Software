@@ -47,6 +47,7 @@ print(f'Самое часто встречающееся слово: "{most_comm
 ```
 ### Результат.
 ![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_7/pic/7-1-1.png)
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_7/sam7-1.py)
 
 
 ### 2)У вас появилась потребность в ведении книги расходов, по отрев
