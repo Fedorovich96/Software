@@ -47,7 +47,7 @@ print(f'Самое часто встречающееся слово: "{most_comm
 ```
 ### Результат.
 ![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_7/pic/7-1-1.png)
-![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_7/sam7-1.png)
+![Меню]((https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_7/pic/7-1.png)
 
 
 ### 2)У вас появилась потребность в ведении книги расходов, по отрев
@@ -116,7 +116,7 @@ if __name__ == "__main__":
 
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_7/pic/7-2.png)
 
 ### 3)Имеется файл input.txt с те том на латинице. Напишите программу,
 которая выводит следующ
@@ -161,7 +161,7 @@ if __name__ == "__main__":
 
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_7/pic/7-3.png)
 
 ### 4)Напишите программу, которая получает на вход предложение,
 выводит его в терминал, заменяя все запрещенные слова
@@ -225,7 +225,7 @@ if __name__ == "__main__":
 
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_7/pic/7-4.png)
 
 ### 5)Самостоятельно придумайте и решите задачу, к тор я будет
 взаимодействовать с текстовым файлом.
@@ -310,4 +310,4 @@ if __name__ == "__main__":
 
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_7/pic/7-5.png)
