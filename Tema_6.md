@@ -30,6 +30,11 @@
 
 
 ```python
+user_input = input("Введите числа, разделенные пробелом: ")
+numbers_list = user_input.split()
+numbers_tuple = tuple(numbers_list)
+print("Список:", numbers_list)
+print("Кортеж:", numbers_tuple)
 
 ```
 ### Результат.
@@ -49,12 +54,20 @@
 (2, 4, 6, 6 4 2), 9)
 Ожид емы результат:
 (2 3)
-1
-, 2, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2)
+(1, 2, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2)
 (2, 4, 6, 6, 4, 2)
 
 
 ```python
+def remove_first_occurrence(tup, value):
+    if value in tup:
+        index = tup.index(value)
+        return tup[:index] + tup[index+1:]
+    return tup
+
+print(remove_first_occurrence((1, 2, 3), 1))
+print(remove_first_occurrence((1, 2, 3, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2), 3))
+print(remove_first_occurrence((2, 4, 6, 6, 4, 2), 9))
 
 ```
 ### Результат.
@@ -75,6 +88,26 @@
 
 
 ```python
+def most_frequent_digits(input_string):
+    digit_count = {}
+
+    for char in input_string:
+        digit = int(char)
+        if digit in digit_count:
+            digit_count[digit] += 1
+        else:
+            digit_count[digit] = 1
+
+    top_three_digits = sorted(digit_count.items(), key=lambda item: (-item[1], item[0]))[:3]
+
+    result = {key: value for key, value in sorted(top_three_digits)}
+
+    return result
+
+
+input_string = "122345555666667778888889"
+output = most_frequent_digits(input_string)
+print(output)
 
 ```
 ### Результат.
@@ -103,6 +136,22 @@
 
 
 ```python
+def find_id_sequence(entries, search_id):
+    try:
+        first_index = entries.index(search_id)
+    except ValueError:
+        return ()
+
+    try:
+        second_index = entries.index(search_id, first_index + 1)
+        return entries[first_index:second_index + 1]
+    except ValueError:
+        return entries[first_index:]
+
+
+print(find_id_sequence((1, 2, 3), 8))  # ()
+print(find_id_sequence((1, 8, 3, 4, 8, 8, 9, 2), 8))  # (8, 3, 4, 8)
+print(find_id_sequence((1, 2, 8, 5, 1, 2, 9), 8))  # (8, 5, 1, 2, 9)
 
 ```
 ### Результат.
@@ -111,9 +160,25 @@
 ### 5)Самос оятельно придумайте и решите задачу, в которой будут
 обязательно использоваться кортеж или список. Проведите
 минимум три теста для проверки работоспособности вашей задачи.
+Определить, можно ли извлечь подпоследовательность из основного списка чисел, идя по порядку без перестановок элементов.
+Пример:
+Главный список: [2, 2, 5, 4, 5]
+Подпоследовательность: [2, 2, 5]
+Функция должна вернуть True, потому что элементы 2, 2, 5 идут в указанном порядке в основном списке.
 
 
 ```python
+def is_subsequence(main_list, subsequence):
+    it = iter(main_list)
+    return all(item in it for item in subsequence)
+
+test1 = is_subsequence([2, 2, 5, 4, 5], [2, 2, 5])
+test2 = is_subsequence([1, 2, 3, 4, 5], [1, 2])
+test3 = is_subsequence([5, 6, 7, 8, 9], [5, 8, 7])
+
+print(f"Test 1: {test1}")
+print(f"Test 2: {test2}")
+print(f"Test 3: {test3}")
 
 ```
 ### Результат.
