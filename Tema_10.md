@@ -41,10 +41,26 @@
 
 
 ```python
+import time
+def timing_decorator(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        result = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        elapsed_time = end_time - start_time
+        print(f"Функция {func.__name__} выполнена за {elapsed_time:.6f} секунд")
+        return result
+    return wrapper
+
+@timing_decorator
+def calculate_sum(n):
+    return sum(range(1, n + 1))
+
+print(calculate_sum(1000000))
 
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_10/pic/10-1.png)
 
 ### 2)Посмотрев на Вовочку, вы также загорелись идеей спортивного
 программирования, начав тренировки вы узнали, что для решения
@@ -62,10 +78,30 @@
 
 
 ```python
+def read_file_content(filename):
+    try:
+        with open(filename, 'r') as file:
+            content = file.read().strip()
+            if not content:
+                raise ValueError("файл пустой")
+            return content
+    except FileNotFoundError:
+        print(f"Файл {filename} не найден.")
+    except ValueError as e:
+        print(e)
 
+with open('empty_file.txt', 'w') as file:
+    pass
+
+with open('non_empty_file.txt', 'w') as file:
+    file.write("Привет, мир!")
+
+print(read_file_content('empty_file.txt'))
+
+print(read_file_content('non_empty_file.txt'))
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_10/pic/10-2.png)
 
 ### 3)Напишите функцию, которая будет складывать 2 и введенное
 пользователем число, но если пользователь введет строку или другой
@@ -81,10 +117,23 @@
 
 
 ```python
+def add_two_and_user_input():
+    try:
+        user_input = input("Введите число: ")
+        number = float(user_input)
+        result = 2 + number
+        print(f"Результат сложения  {result}")
+    except ValueError:
+        print("Неподходящий тип данных. Ожидалось число.")
+
+add_two_and_user_input()
+add_two_and_user_input()
+add_two_and_user_input()
+
 
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_10/pic/10-3.png)
 
 ### 4)Создайте собственный декоратор, кото ый удет использоваться для
 двух любых вами придуманных функци . Декораторы, которые
@@ -98,9 +147,37 @@
 
 ```python
 
+class LoggingDecorator:
+    def __init__(self, func):
+        self.func = func
+
+    def __call__(self, *args, **kwargs):
+        print(" Выполняется функция:", self.func.__name__)
+        result = self.func(*args, **kwargs)
+        print(" Функция выполнена:", self.func.__name__)
+        return result
+
+
+@LoggingDecorator
+def add(a, b):
+    return a + b
+
+
+@LoggingDecorator
+def subtract(a, b):
+    return a - b
+
+
+result_add = add(5, 3)
+print("Результат сложения:", result_add)
+
+result_subtract = subtract(10, 4)
+print("Результат вычитания:", result_subtract)
+
+
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_10/pic/10-4.png)
 
 ### 5)Создайте собств нное исключение, которое будет использоваться в
 двух любых фраг ентах кода. Исключения, которые использовались
@@ -112,8 +189,31 @@
 
 
 ```python
+class MyCustomException(Exception):
+    def __init__(self, message="Это мое собственное исключение!"):
+        self.message = message
+        super().__init__(self.message)
+
+# Фрагмент кода 1: Где исключение будет создаваться
+def divide_numbers(a, b):
+    if b == 0:
+        raise MyCustomException("Попытка деления на ноль!")
+    return a / b
+
+try:
+    result = divide_numbers(10, 0)
+except MyCustomException as e:
+    print(f"Произошло исключение: {e}")
+
+# Фрагмент кода 2: Где исключение будет обработано
+try:
+    number = int(input("Введите число больше 10: "))
+    if number <= 10:
+        raise MyCustomException("Введено число меньше или равное 10!")
+except MyCustomException as e:
+    print(f"Произошло исключение: {e}")
 
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_10/pic/10-5.png)
 
