@@ -27,6 +27,22 @@
 
 
 ```python
+class Dog:
+    def __init__(self, name, age, breed):
+        self.name = name
+        self.age = age
+        self.breed = breed
+
+    def bark(self):
+        return f"{self.name} говорит гав"
+
+my_dog = Dog("Шарик", 5, "Дворняга")
+
+# Взаимодействие с объектом
+print(f"Кличка собаки {my_dog.name}.")
+print(f"{my_dog.name},возраст {my_dog.age} лет.")
+print(my_dog.bark())
+
 
 ```
 ### Результат.
@@ -40,6 +56,24 @@
 
 
 ```python
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def bark(self):
+        return f"{self.name} ГАВ"
+
+    def fetch(self, item):
+        return f"{self.name} бежит за  {item}! "
+
+# Создаем экземпляр класса Dog
+my_dog = Dog("Шарик", 5)
+
+# Вызываем методы экземпляра класса
+print(my_dog.bark())
+print(my_dog.fetch("кошкой"))
+
 
 ```
 ### Результат.
@@ -53,6 +87,31 @@
 
 
 ```python
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return "Я животное"
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed
+
+    def speak(self):
+        return "ГАВ"
+
+    def wag_tail(self):
+        return "Виляет хвостом"
+
+
+animal = Animal("Some animal")
+print(animal.speak()) 
+
+dog = Dog("Buddy", "Golden Retriever")
+print(dog.speak())
+print(dog.wag_tail())
 
 ```
 ### Результат.
@@ -67,6 +126,27 @@
 
 
 ```python
+  def set_name(self, name):
+        self._name = name
+
+    def get_age(self):
+        return self._age
+
+    def set_age(self, age):
+        if age < 0:
+            print("Возраст не может быть отрицательным!")
+        else:
+            self._age = age
+
+
+# Пример использования класса Dog
+my_dog = Dog("Шарик", 5)
+print(f"Имя собаки: {my_dog.get_name()}, Возраст собаки: {my_dog.get_age()}")
+
+my_dog.set_age(-2)
+my_dog.set_age(3)
+my_dog.set_name("Бобик")
+print(f"Имя собаки: {my_dog.get_name()}, Возраст собаки: {my_dog.get_age()}")
 
 ```
 ### Результат.
@@ -79,6 +159,38 @@
 
 
 ```python
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return "Гав-гав!"
+
+
+class Labrador(Dog):
+    def speak(self):
+        return "Мяу"
+
+
+class Poodle(Dog):
+    def speak(self):
+        return "Арррр "
+
+
+# Функция для демонстрации полиморфизма
+def let_dog_speak(dog):
+    print(f"{dog.name}: {dog.speak()}")
+
+
+# Создаем экземпляры разных пород собак
+dog1 = Dog("Шарик")
+dog2 = Labrador("Бобик")
+dog3 = Poodle("Ника")
+
+# Вызываем метод speak на разных экземплярах
+let_dog_speak(dog1)
+let_dog_speak(dog2)
+let_dog_speak(dog3)
 
 ```
 ### Результат.
