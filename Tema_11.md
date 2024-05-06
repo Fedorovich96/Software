@@ -34,10 +34,22 @@
 
 
 ```python
+def fib(n):
+    a, b = 1, 1
+    count = 0
+    while count < n:
+        yield a
+        a, b = b, a + b
+        count += 1
+
+# Генерируем числа Фибоначчи от 200 до 250
+for number in fib(250):
+    if number >= 200:
+        print(number)
 
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_11/pic/11-1.png)
 
 ### 2)К коду предыдущей задачи добавьте за оми
 ие каждого числа
@@ -47,9 +59,21 @@
 
 
 ```python
+from get_datetime import get_datetime
+get_datetime()
 
+def fib(n, filename='fib.txt'):
+    a, b = 1, 1
+    with open(filename, 'w') as file:
+        for _ in range(n):
+            file.write(f"{a}\n")
+            yield a
+            a, b = b, a + b
+
+fib_generator = fib(200)
+list(fib_generator)
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_11/pic/11-2.png)
 
 
