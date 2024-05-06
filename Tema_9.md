@@ -102,6 +102,6 @@ while not bush.all_are_ripe():
 gardener.harvest()
 ```
 ### Результат.
-![Меню]()
+![Меню](https://github.com/Fedorovich96/Software/blob/%D0%A2%D0%B5%D0%BC%D0%B0_9/pic/9.png)
 
 
